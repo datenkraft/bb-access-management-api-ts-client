@@ -13,7 +13,7 @@ The Access Management API TS Client enables you to work with the Access Manageme
 You can use [npm](https://www.npmjs.com/) to install the package.
 
 ~~~~ bash
-npm install @datenkraft/bb-sku-catalog-api-ts-client
+npm install @datenkraft/bb-access-management-api-ts-client
 ~~~~
 
 ## Using the package
@@ -26,7 +26,7 @@ The Client is auto-generated with [ferdikoomen/openapi-typescript-codegen](https
 
 ~~~~ typescript
 import { ConfigOptions } from '@datenkraft/bb-base-api-ts-client';
-import { SkuCatalogApiClient } from '@datenkraft/bb-sku-catalog-api-ts-client';
+import { AccessManagementApiClient } from '@datenkraft/bb-access-management-api-ts-client';
 
 const configOptions: ConfigOptions = {
   clientId: 'clientId',
@@ -37,14 +37,14 @@ const configOptions: ConfigOptions = {
   useExternalIdToken: true,
 };
 
-SkuCatalogApiClient.init(configOptions).then(() => {
+AccessManagementApiClient.init(configOptions).then(() => {
   // Client is initialized
 });
 ~~~~
 
-### Example Endpoint: Get SKU
+### Example Endpoint: Get Role Endpoint
 ~~~~ typescript
-SkuCatalogApiClient.Generated.SkuService.getSku('skuCode')
+AccessManagementApiClient.Generated.SkuService.getRoleCollectionEndpoint()
   .then((sku) => {
     // Request succeeded
   })
