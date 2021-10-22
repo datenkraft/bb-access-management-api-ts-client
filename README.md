@@ -44,7 +44,7 @@ AccessManagementApiClient.init(configOptions).then(() => {
 
 ### Example Endpoint: Get Role Endpoint
 ~~~~ typescript
-AccessManagementApiClient.Generated.SkuService.getRoleCollectionEndpoint()
+AccessManagementApiClient.Generated.RoleService.getRoleCollectionEndpoint()
   .then((sku) => {
     // Request succeeded
   })
