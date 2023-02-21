@@ -1,5 +1,5 @@
 {
-  "name": "@datenkraft/bb-access-management-api-ts-client",
+  "name": "@datenkraft/bb-x-access-management-api-ts-client",
   "homepage": "https://bitbucket.org/datenkraft/bb-access-management-api-ts-client#readme",
   "version": "1.1.0",
   "description": "The Access Management API TS Client enables you to work with the Access Management API",
