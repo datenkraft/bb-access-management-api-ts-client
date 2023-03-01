@@ -2,24 +2,98 @@
     "openapi": "3.0.0",
     "info": {
         "title": "Backbone Access Management API",
-        "description": "Backbone Access Management API",
-        "version": "1.0.0"
+        "description": "\n- alpha: Currently developed API version. Subject to major changes.\n- beta: A semi-stable early access version. New features can be added. Breaking changes are possible.\n- stable: The API is recommended for use in production.\n\n[Changelog](https:\/\/access-management-api.conqore.niceshops.com\/v1\/docs\/changelog.html)\n\nAll data is transferred in UTF-8 encoding.\\\nThe API uses stateless HTTP. No cookies have to be kept.\\\nAuthentication via OAuth2 client credentials flow.\n\n[Backbone Access Management API PHP client @Packagist](https:\/\/packagist.org\/packages\/datenkraft\/bb-access-management-api-php-client)",
+        "version": "v1.beta"
     },
     "servers": [
         {
-            "url": "UNDEFINED",
-            "description": "Production server"
-        },
-        {
-            "url": "UNDEFINED",
-            "description": "Staging server"
-        },
-        {
-            "url": "https://localhost:30360/v1",
-            "description": "Development server"
+            "url": "https://access-management-api.conqore.niceshops.com/v1",
+            "description": "Production Server"
         }
     ],
     "paths": {
+        "/docs": {
+            "get": {
+                "tags": [
+                    "docs"
+                ],
+                "summary": "Get the openapi documentation as json",
+                "description": "Get the openapi documentation as json",
+                "operationId": "getOpenApi",
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                },
+                "security": []
+            }
+        },
+        "/docs/openapi.{format}": {
+            "get": {
+                "tags": [
+                    "docs"
+                ],
+                "summary": "Get the openapi documentation in the specified format",
+                "description": "Get the openapi documentation in the specified format",
+                "operationId": "getOpenApiInFormat",
+                "parameters": [
+                    {
+                        "name": "format",
+                        "in": "path",
+                        "description": "Openapi file format",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "yaml",
+                                "json"
+                            ]
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/docs/changelog.{format}": {
+            "get": {
+                "tags": [
+                    "docs"
+                ],
+                "summary": "Get the changelog in the specified format",
+                "description": "Get the changelog in the specified format",
+                "operationId": "getChangelogInFormat",
+                "parameters": [
+                    {
+                        "name": "format",
+                        "in": "path",
+                        "description": "Changelog file format",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "md",
+                                "html"
+                            ]
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "404": {
+                        "description": "Changelog not found"
+                    },
+                    "400": {
+                        "description": "Invalid format"
+                    }
+                }
+            }
+        },
         "/auth/role": {
             "get": {
                 "tags": [
@@ -79,7 +153,15 @@
                             }
                         }
                     }
-                }
+                },
+                "security": [
+                    {
+                        "oAuthAuthorization": []
+                    },
+                    {
+                        "bearerAuth": []
+                    }
+                ]
             }
         },
         "/auth/role-identity": {
@@ -141,7 +223,15 @@
                             }
                         }
                     }
-                }
+                },
+                "security": [
+                    {
+                        "oAuthAuthorization": []
+                    },
+                    {
+                        "bearerAuth": []
+                    }
+                ]
             },
             "post": {
                 "tags": [
@@ -241,7 +331,15 @@
                             }
                         }
                     }
-                }
+                },
+                "security": [
+                    {
+                        "oAuthAuthorization": []
+                    },
+                    {
+                        "bearerAuth": []
+                    }
+                ]
             },
             "delete": {
                 "tags": [
@@ -334,52 +432,15 @@
                             }
                         }
                     }
-                }
-            }
-        },
-        "/docs": {
-            "get": {
-                "tags": [
-                    "docs"
-                ],
-                "summary": "Get the openapi documentation as json",
-                "description": "Get the openapi documentation as json",
-                "operationId": "getOpenApi",
-                "responses": {
-                    "200": {
-                        "description": "OK"
-                    }
-                }
-            }
-        },
-        "/docs/openapi.{format}": {
-            "get": {
-                "tags": [
-                    "docs"
-                ],
-                "summary": "Get the openapi documentation in the specified format (yaml or json, fallback is json)",
-                "description": "Get the openapi documentation in the specified format (yaml or json, fallback is json)",
-                "operationId": "getOpenApiInFormat",
-                "parameters": [
+                },
+                "security": [
                     {
-                        "name": "format",
-                        "in": "path",
-                        "description": "Openapi file format",
-                        "required": true,
-                        "schema": {
-                            "type": "string",
-                            "enum": [
-                                "yaml",
-                                "json"
-                            ]
-                        }
+                        "oAuthAuthorization": []
+                    },
+                    {
+                        "bearerAuth": []
                     }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK"
-                    }
-                }
+                ]
             }
         },
         "/role": {
@@ -454,9 +515,10 @@
                 },
                 "security": [
                     {
-                        "oAuthAuthorization": [
-                            "bb-access-management-api/role:get"
-                        ]
+                        "oAuthAuthorization": []
+                    },
+                    {
+                        "bearerAuth": []
                     }
                 ]
             }
@@ -530,7 +592,15 @@
                             }
                         }
                     }
-                }
+                },
+                "security": [
+                    {
+                        "oAuthAuthorization": []
+                    },
+                    {
+                        "bearerAuth": []
+                    }
+                ]
             },
             "post": {
                 "tags": [
@@ -640,7 +710,15 @@
                             }
                         }
                     }
-                }
+                },
+                "security": [
+                    {
+                        "oAuthAuthorization": []
+                    },
+                    {
+                        "bearerAuth": []
+                    }
+                ]
             },
             "delete": {
                 "tags": [
@@ -723,7 +801,15 @@
                             }
                         }
                     }
-                }
+                },
+                "security": [
+                    {
+                        "oAuthAuthorization": []
+                    },
+                    {
+                        "bearerAuth": []
+                    }
+                ]
             }
         }
     },
@@ -740,6 +826,30 @@
                     }
                 },
                 "type": "object"
+            },
+            "informationResponse": {
+                "properties": {
+                    "information": {
+                        "description": "information",
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/information"
+                        }
+                    }
+                },
+                "type": "object"
+            },
+            "information": {
+                "required": [
+                    "code",
+                    "message"
+                ],
+                "type": "object",
+                "allOf": [
+                    {
+                        "$ref": "#/components/schemas/error"
+                    }
+                ]
             },
             "error": {
                 "required": [
@@ -758,27 +868,56 @@
                 },
                 "type": "object"
             },
-            "authPermissionResource": {
+            "collection": {
+                "title": "collection",
+                "properties": {
+                    "pagination": {
+                        "$ref": "#/components/schemas/collectionPagination"
+                    },
+                    "data": {
+                        "description": "",
+                        "type": "object"
+                    }
+                },
+                "type": "object"
+            },
+            "collectionPagination": {
+                "title": "collectionPagination",
+                "properties": {
+                    "page": {
+                        "description": "The page contained in this collection.",
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "pageSize": {
+                        "description": "The page size used for reading the collection.",
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                },
+                "type": "object"
+            },
+            "authRoleIdentityResource": {
                 "required": [
-                    "permissionCode",
-                    "name"
+                    "roleCode",
+                    "identityId"
                 ],
                 "properties": {
-                    "permissionCode": {
-                        "description": "Permission Code",
+                    "roleCode": {
+                        "description": "Role Code",
                         "type": "string"
                     },
-                    "name": {
-                        "description": "Name",
+                    "identityId": {
+                        "description": "Identity ID",
                         "type": "string"
                     }
                 },
                 "type": "object"
             },
-            "getAuthPermissionCollectionResponse": {
+            "authRoleIdentityCollection": {
                 "type": "array",
                 "items": {
-                    "$ref": "#/components/schemas/authPermissionResource"
+                    "$ref": "#/components/schemas/authRoleIdentityResource"
                 }
             },
             "authRoleResource": {
@@ -804,37 +943,20 @@
                     "$ref": "#/components/schemas/authRoleResource"
                 }
             },
-            "authRoleIdentityResource": {
-                "required": [
-                    "roleCode",
-                    "identityId"
-                ],
-                "properties": {
-                    "roleCode": {
-                        "description": "Role Code",
-                        "type": "string"
-                    },
-                    "identityId": {
-                        "description": "Identity ID",
-                        "type": "string"
-                    }
-                },
-                "type": "object"
-            },
-            "authRoleIdentityCollection": {
+            "getAuthPermissionCollectionResponse": {
                 "type": "array",
                 "items": {
-                    "$ref": "#/components/schemas/authRoleIdentityResource"
+                    "$ref": "#/components/schemas/authPermissionResource"
                 }
             },
-            "roleResource": {
+            "authPermissionResource": {
                 "required": [
-                    "roleCode",
+                    "permissionCode",
                     "name"
                 ],
                 "properties": {
-                    "roleCode": {
-                        "description": "Role Code",
+                    "permissionCode": {
+                        "description": "Permission Code",
                         "type": "string"
                     },
                     "name": {
@@ -844,10 +966,11 @@
                 },
                 "type": "object"
             },
-            "getRoleCollectionResponse": {
+            "roleIdentityCollection": {
+                "description": "Class RoleIdentityResourceCollection",
                 "type": "array",
                 "items": {
-                    "$ref": "#/components/schemas/roleResource"
+                    "$ref": "#/components/schemas/roleIdentityResource"
                 }
             },
             "roleIdentityResource": {
@@ -867,11 +990,29 @@
                 },
                 "type": "object"
             },
-            "roleIdentityCollection": {
+            "getRoleCollectionResponse": {
+                "description": "Class RoleResourceCollection",
                 "type": "array",
                 "items": {
-                    "$ref": "#/components/schemas/roleIdentityResource"
+                    "$ref": "#/components/schemas/roleResource"
                 }
+            },
+            "roleResource": {
+                "required": [
+                    "roleCode",
+                    "name"
+                ],
+                "properties": {
+                    "roleCode": {
+                        "description": "Role Code",
+                        "type": "string"
+                    },
+                    "name": {
+                        "description": "Name",
+                        "type": "string"
+                    }
+                },
+                "type": "object"
             }
         },
         "securitySchemes": {
@@ -880,11 +1021,17 @@
                 "description": "OAuth2 Authorization",
                 "flows": {
                     "clientCredentials": {
-                        "tokenUrl": "https://localhost:30370/oauth/token",
+                        "tokenUrl": "https://authentication-api.conqore.niceshops.com/oauth/token",
                         "refreshUrl": "UNDEFINED",
                         "scopes": {}
                     }
                 }
+            },
+            "bearerAuth": {
+                "type": "http",
+                "description": "Bearer Token Authorization",
+                "bearerFormat": "JWT",
+                "scheme": "bearer"
             }
         }
     }
