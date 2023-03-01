@@ -17,8 +17,8 @@ type Config = {
 }
 
 export const OpenAPI: Config = {
-    BASE: 'UNDEFINED',
-    VERSION: '1.0.0',
+    BASE: 'https://access-management-api.conqore.niceshops.com/v1',
+    VERSION: '1.beta',
     WITH_CREDENTIALS: false,
     TOKEN: undefined,
     USERNAME: undefined,
