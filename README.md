@@ -27,7 +27,7 @@ The Client is auto-generated with [OpenAPITools](https://openapi-generator.tech/
 ```typescript
 import { ConfigOptions } from '@datenkraft/bb-base-api-ts-client';
 import { AccessManagementApiClient } from '@datenkraft/bb-access-management-api-ts-client';
-import { ShopApi } from '@datenkraft/bb-access-management-api-ts-client/Generated';
+import { XxxApi } from '@datenkraft/bb-access-management-api-ts-client/Generated';
 
 const configOptions: ConfigOptions = {
   clientId: 'clientId',
@@ -39,8 +39,8 @@ const configOptions: ConfigOptions = {
 };
 
 AccessManagementApiClient.getApiConfig(configOptions).then((config) => {
-  const AccessManagementApi = new AccessManagementApi(config);
-  AccessManagementApi.getAccessManagementCollection().then((data) => {});
+  const XxxApi = new XxxApi(config);
+  XxxApi.getXxxCollection().then((data) => {});
 });
 ```
 
