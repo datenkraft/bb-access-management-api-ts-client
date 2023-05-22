@@ -1,3 +1,6 @@
+export * from './audit-log';
+export * from './audit-log-collection';
+export * from './audit-log-collection-all-of';
 export * from './auth-permission-resource';
 export * from './auth-permission-role-resource';
 export * from './auth-role-identity-resource';
