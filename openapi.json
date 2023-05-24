@@ -20,6 +20,17 @@
                 "summary": "Get all role to identity assignments from every microservice",
                 "description": "Get all role to identity assignments from every microservice",
                 "operationId": "getRoleIdentityCollection",
+                "parameters": [
+                    {
+                        "name": "filter[identityId]",
+                        "in": "query",
+                        "description": "Filter the response for an identityId (uuid).",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
                 "responses": {
                     "200": {
                         "description": "OK",

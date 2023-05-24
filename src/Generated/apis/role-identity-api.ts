@@ -81,10 +81,11 @@ export const RoleIdentityApiAxiosParamCreator = function (configuration?: Config
         /**
          * Get all role to identity assignments from every microservice
          * @summary Get all role to identity assignments from every microservice
+         * @param {string} [filterIdentityId] Filter the response for an identityId (uuid).
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getRoleIdentityCollection: async (options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getRoleIdentityCollection: async (filterIdentityId?: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/role-identity`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -104,6 +105,10 @@ export const RoleIdentityApiAxiosParamCreator = function (configuration?: Config
             // authentication bearerAuth required
             // http bearer authentication required
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+            if (filterIdentityId !== undefined) {
+                localVarQueryParameter['filter[identityId]'] = filterIdentityId;
+            }
 
 
     
@@ -184,11 +189,12 @@ export const RoleIdentityApiFp = function(configuration?: Configuration) {
         /**
          * Get all role to identity assignments from every microservice
          * @summary Get all role to identity assignments from every microservice
+         * @param {string} [filterIdentityId] Filter the response for an identityId (uuid).
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getRoleIdentityCollection(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<RoleIdentityResource>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getRoleIdentityCollection(options);
+        async getRoleIdentityCollection(filterIdentityId?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<RoleIdentityResource>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getRoleIdentityCollection(filterIdentityId, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -225,11 +231,12 @@ export const RoleIdentityApiFactory = function (configuration?: Configuration, b
         /**
          * Get all role to identity assignments from every microservice
          * @summary Get all role to identity assignments from every microservice
+         * @param {string} [filterIdentityId] Filter the response for an identityId (uuid).
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getRoleIdentityCollection(options?: any): AxiosPromise<Array<RoleIdentityResource>> {
-            return localVarFp.getRoleIdentityCollection(options).then((request) => request(axios, basePath));
+        getRoleIdentityCollection(filterIdentityId?: string, options?: any): AxiosPromise<Array<RoleIdentityResource>> {
+            return localVarFp.getRoleIdentityCollection(filterIdentityId, options).then((request) => request(axios, basePath));
         },
         /**
          * Create one or more role to identity assignments in this resource server
@@ -263,11 +270,12 @@ export interface RoleIdentityApiInterface {
     /**
      * Get all role to identity assignments from every microservice
      * @summary Get all role to identity assignments from every microservice
+     * @param {string} [filterIdentityId] Filter the response for an identityId (uuid).
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof RoleIdentityApiInterface
      */
-    getRoleIdentityCollection(options?: AxiosRequestConfig): AxiosPromise<Array<RoleIdentityResource>>;
+    getRoleIdentityCollection(filterIdentityId?: string, options?: AxiosRequestConfig): AxiosPromise<Array<RoleIdentityResource>>;
 
     /**
      * Create one or more role to identity assignments in this resource server
@@ -303,12 +311,13 @@ export class RoleIdentityApi extends BaseAPI implements RoleIdentityApiInterface
     /**
      * Get all role to identity assignments from every microservice
      * @summary Get all role to identity assignments from every microservice
+     * @param {string} [filterIdentityId] Filter the response for an identityId (uuid).
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof RoleIdentityApi
      */
-    public getRoleIdentityCollection(options?: AxiosRequestConfig) {
-        return RoleIdentityApiFp(this.configuration).getRoleIdentityCollection(options).then((request) => request(this.axios, this.basePath));
+    public getRoleIdentityCollection(filterIdentityId?: string, options?: AxiosRequestConfig) {
+        return RoleIdentityApiFp(this.configuration).getRoleIdentityCollection(filterIdentityId, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
