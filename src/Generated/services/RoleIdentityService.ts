@@ -11,14 +11,20 @@ export class RoleIdentityService {
     /**
      * Get all role to identity assignments from every microservice
      * Get all role to identity assignments from every microservice
+     * @param filterIdentityId Filter the response for an identityId (uuid).
      * @returns roleIdentityCollection OK
      * @returns errorResponse Unexpected error
      * @throws ApiError
      */
-    public static async getRoleIdentityCollection(): Promise<roleIdentityCollection | errorResponse> {
+    public static async getRoleIdentityCollection(
+        filterIdentityId?: string,
+    ): Promise<roleIdentityCollection | errorResponse> {
         const result = await __request({
             method: 'GET',
             path: `/role-identity`,
+            query: {
+                'filter[identityId]': filterIdentityId,
+            },
             errors: {
                 400: `Bad Request`,
                 401: `Unauthorized`,
