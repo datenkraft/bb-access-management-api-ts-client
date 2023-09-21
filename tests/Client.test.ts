@@ -19,7 +19,7 @@ describe("Client Test (staging)", () => {
         const roleApi = new RoleApi(config);
 
         roleApi
-          .getRoleCollectionEndpoint()
+          .getRoleCollectionEndpoint(1, 100)
           .then(({ data: response }) => {
             if (response.data instanceof Array) {
               expect(response.data).toContainEqual({
