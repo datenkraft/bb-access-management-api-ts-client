@@ -13,7 +13,7 @@ describe("Client Test (staging)", () => {
 
     AccessManagementApiClient.getApiConfig(
       configOptions,
-      "https://access-management-api.staging.backbone.datenkraft.info/v1"
+      "https://access-management-api.staging.backbone.datenkraft.info/v2"
     )
       .then((config) => {
         const roleApi = new RoleApi(config);
