@@ -33,10 +33,14 @@ models/error-references-inner.ts
 models/error-response.ts
 models/get-auth-permission-collection-response-all-of.ts
 models/get-auth-permission-collection-response.ts
+models/get-role-collection-response-all-of.ts
+models/get-role-collection-response.ts
 models/index.ts
 models/information-response.ts
 models/information.ts
 models/model-error.ts
 models/new-auth-role-resource.ts
+models/role-identity-collection-all-of.ts
+models/role-identity-collection.ts
 models/role-identity-resource.ts
 models/role-resource.ts
