@@ -1608,8 +1608,8 @@
                 "tags": [
                     "role-identity"
                 ],
-                "summary": "Create one or more role to identity assignments in this resource server",
-                "description": "Create one or more role to identity assignments in this resource server",
+                "summary": "Create a role to identity assignment in the target resource server",
+                "description": "Create a role to identity assignments in the target resource server",
                 "operationId": "postRoleIdentity",
                 "requestBody": {
                     "required": true,

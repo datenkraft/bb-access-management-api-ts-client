@@ -139,8 +139,8 @@ export const RoleIdentityApiAxiosParamCreator = function (configuration?: Config
             };
         },
         /**
-         * Create one or more role to identity assignments in this resource server
-         * @summary Create one or more role to identity assignments in this resource server
+         * Create a role to identity assignments in the target resource server
+         * @summary Create a role to identity assignment in the target resource server
          * @param {RoleIdentityResource} roleIdentityResource 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -218,8 +218,8 @@ export const RoleIdentityApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Create one or more role to identity assignments in this resource server
-         * @summary Create one or more role to identity assignments in this resource server
+         * Create a role to identity assignments in the target resource server
+         * @summary Create a role to identity assignment in the target resource server
          * @param {RoleIdentityResource} roleIdentityResource 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -262,8 +262,8 @@ export const RoleIdentityApiFactory = function (configuration?: Configuration, b
             return localVarFp.getRoleIdentityCollection(page, pageSize, paginationMode, filterIdentityId, options).then((request) => request(axios, basePath));
         },
         /**
-         * Create one or more role to identity assignments in this resource server
-         * @summary Create one or more role to identity assignments in this resource server
+         * Create a role to identity assignments in the target resource server
+         * @summary Create a role to identity assignment in the target resource server
          * @param {RoleIdentityResource} roleIdentityResource 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -304,8 +304,8 @@ export interface RoleIdentityApiInterface {
     getRoleIdentityCollection(page?: number, pageSize?: number, paginationMode?: 'default' | 'totalCount', filterIdentityId?: string, options?: AxiosRequestConfig): AxiosPromise<RoleIdentityCollection>;
 
     /**
-     * Create one or more role to identity assignments in this resource server
-     * @summary Create one or more role to identity assignments in this resource server
+     * Create a role to identity assignments in the target resource server
+     * @summary Create a role to identity assignment in the target resource server
      * @param {RoleIdentityResource} roleIdentityResource 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -350,8 +350,8 @@ export class RoleIdentityApi extends BaseAPI implements RoleIdentityApiInterface
     }
 
     /**
-     * Create one or more role to identity assignments in this resource server
-     * @summary Create one or more role to identity assignments in this resource server
+     * Create a role to identity assignments in the target resource server
+     * @summary Create a role to identity assignment in the target resource server
      * @param {RoleIdentityResource} roleIdentityResource 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
