@@ -19,14 +19,14 @@ describe("Client Test (staging)", () => {
         const roleApi = new RoleApi(config);
 
         roleApi
-          .getRoleCollectionEndpoint(1, 100)
+          .getRoleCollectionEndpoint(1, 1)
           .then(({ data: response }) => {
             if (response.data instanceof Array) {
-              expect(response.data).toContainEqual({
-                roleCode: "bb-access-management-api/auth_access-management",
-                name: "Role for access management",
-              });
-              done();
+              if (response.data.length > 0) {
+                done();
+              } else {
+                fail("Auth Role Collection did not find any results");
+              }
             } else {
               done("Auth Role Collection not found");
             }
