@@ -1,3 +1,6 @@
+**This package version branch is abandoned and does not receive any updates!**
+---
+
 # Backbone - Access Management API TS Client
 
 ## Introduction
