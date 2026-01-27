@@ -12,7 +12,7 @@ describe("Client Test (staging)", () => {
 
     AccessManagementApiClient.getApiConfig(
       configOptions,
-      "https://access-management-api.sandbox.steve.niceshops.com/v1"
+      "https://access-management-api.sandbox.steve.niceshops.com/v2"
     )
       .then((config) => {
         const roleApi = new RoleApi(config);
