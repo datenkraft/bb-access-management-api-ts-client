@@ -1,5 +1,5 @@
-import { Auth, Config, ConfigOptions } from '@datenkraft/bb-base-api-ts-client';
-import { Configuration } from './Generated';
+import { Auth, Config, ConfigOptions } from "@datenkraft/bb-base-api-ts-client";
+import { Configuration } from "./Generated";
 
 export namespace AccessManagementApiClient {
   export async function getApiConfig(
@@ -8,9 +8,8 @@ export namespace AccessManagementApiClient {
   ) {
     return new Configuration({
       basePath:
-        endpointUrl ?? process.env.X_DATENKRAFT_ACCESS_MANAGEMENT_API_URL ?? '',
+        endpointUrl ?? process.env.X_DATENKRAFT_ACCESS_MANAGEMENT_API_URL ?? "",
       accessToken: await new Auth(new Config(configOption)).getAccessToken(),
     });
   }
 }
-
