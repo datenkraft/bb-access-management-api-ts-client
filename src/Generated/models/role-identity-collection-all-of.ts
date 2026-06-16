@@ -24,7 +24,7 @@ import { RoleIdentityResource } from './role-identity-resource';
  */
 export interface RoleIdentityCollectionAllOf {
     /**
-     * Class RoleIdentityResourceCollection
+     * 
      * @type {Array<RoleIdentityResource>}
      * @memberof RoleIdentityCollectionAllOf
      */

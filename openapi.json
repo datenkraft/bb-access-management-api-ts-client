@@ -2244,7 +2244,6 @@
                     {
                         "properties": {
                             "data": {
-                                "description": "Class RoleResourceCollection",
                                 "type": "array",
                                 "items": {
                                     "$ref": "#/components/schemas/roleResource"
@@ -2303,7 +2302,6 @@
                     {
                         "properties": {
                             "data": {
-                                "description": "Class RoleIdentityResourceCollection",
                                 "type": "array",
                                 "items": {
                                     "$ref": "#/components/schemas/roleIdentityResource"
@@ -2368,5 +2366,39 @@
                 "scheme": "bearer"
             }
         }
-    }
+    },
+    "tags": [
+        {
+            "name": "audit-log",
+            "description": "audit-log"
+        },
+        {
+            "name": "auth-permission",
+            "description": "auth-permission"
+        },
+        {
+            "name": "auth-permission-role",
+            "description": "auth-permission-role"
+        },
+        {
+            "name": "auth-role",
+            "description": "auth-role"
+        },
+        {
+            "name": "auth-role-identity",
+            "description": "auth-role-identity"
+        },
+        {
+            "name": "docs",
+            "description": "docs"
+        },
+        {
+            "name": "role",
+            "description": "role"
+        },
+        {
+            "name": "role-identity",
+            "description": "role-identity"
+        }
+    ]
 }
