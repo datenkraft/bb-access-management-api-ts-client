@@ -24,7 +24,7 @@ import { RoleResource } from './role-resource';
  */
 export interface GetRoleCollectionResponseAllOf {
     /**
-     * Class RoleResourceCollection
+     * 
      * @type {Array<RoleResource>}
      * @memberof GetRoleCollectionResponseAllOf
      */
